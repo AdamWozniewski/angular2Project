@@ -8,19 +8,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require("@angular/core");
-var AppComponent = (function () {
-    function AppComponent() {
+var core_1 = require('@angular/core');
+var FormComponent = (function () {
+    function FormComponent() {
     }
-    AppComponent = __decorate([
+    FormComponent = __decorate([
         core_1.Component({
-            selector: 'my-app',
-            // directives:[ArticleComponent,UserComponent,FormComponent],
-            templateUrl: 'app/templates/app.component.template.html'
+            selector: 'article-form',
+            // inputs:['form-inputs'],
+            templateUrl: 'app/Form/template/form.component.template.html'
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], FormComponent);
+    return FormComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.FormComponent = FormComponent;
+//# sourceMappingURL=form.component.js.map
