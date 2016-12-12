@@ -12,15 +12,15 @@ var core_1 = require("@angular/core");
 var ArticleComponent = (function () {
     function ArticleComponent() {
     }
-    ArticleComponent = __decorate([
-        core_1.Component({
-            selector: 'single-art',
-            inputs: ['article_inputs'],
-            templateUrl: 'app/Article/template/article.component.template.html'
-        }), 
-        __metadata('design:paramtypes', [])
-    ], ArticleComponent);
     return ArticleComponent;
 }());
+ArticleComponent = __decorate([
+    core_1.Component({
+        selector: 'single-art',
+        inputs: ['article_inputs'],
+        templateUrl: 'app/Article/template/article.component.template.html'
+    }),
+    __metadata("design:paramtypes", [])
+], ArticleComponent);
 exports.ArticleComponent = ArticleComponent;
 //# sourceMappingURL=article.component.js.map

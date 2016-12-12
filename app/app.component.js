@@ -12,15 +12,15 @@ var core_1 = require("@angular/core");
 var AppComponent = (function () {
     function AppComponent() {
     }
-    AppComponent = __decorate([
-        core_1.Component({
-            selector: 'my-app',
-            // directives:[ArticleComponent,UserComponent,FormComponent],
-            templateUrl: 'app/templates/app.component.template.html'
-        }), 
-        __metadata('design:paramtypes', [])
-    ], AppComponent);
     return AppComponent;
 }());
+AppComponent = __decorate([
+    core_1.Component({
+        selector: 'my-app',
+        // directives:[ArticleComponent,UserComponent,FormComponent],
+        templateUrl: 'app/app.component.templates/app.component.templates.html'
+    }),
+    __metadata("design:paramtypes", [])
+], AppComponent);
 exports.AppComponent = AppComponent;
 //# sourceMappingURL=app.component.js.map

@@ -16,15 +16,15 @@ var user_component_1 = require("./Users/user.component");
 var AppModule = (function () {
     function AppModule() {
     }
-    AppModule = __decorate([
-        core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule],
-            declarations: [app_component_1.AppComponent, article_component_1.ArticleComponent, user_component_1.UserComponent],
-            bootstrap: [app_component_1.AppComponent],
-        }), 
-        __metadata('design:paramtypes', [])
-    ], AppModule);
     return AppModule;
 }());
+AppModule = __decorate([
+    core_1.NgModule({
+        imports: [platform_browser_1.BrowserModule],
+        declarations: [app_component_1.AppComponent, article_component_1.ArticleComponent, user_component_1.UserComponent],
+        bootstrap: [app_component_1.AppComponent],
+    }),
+    __metadata("design:paramtypes", [])
+], AppModule);
 exports.AppModule = AppModule;
 //# sourceMappingURL=app.module.js.map

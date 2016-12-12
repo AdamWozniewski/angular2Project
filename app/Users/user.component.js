@@ -12,15 +12,15 @@ var core_1 = require("@angular/core");
 var UserComponent = (function () {
     function UserComponent() {
     }
-    UserComponent = __decorate([
-        core_1.Component({
-            selector: 'users',
-            inputs: ['user_inputs'],
-            templateUrl: 'app/Users/template/user.component.template.html'
-        }), 
-        __metadata('design:paramtypes', [])
-    ], UserComponent);
     return UserComponent;
 }());
+UserComponent = __decorate([
+    core_1.Component({
+        selector: 'users',
+        inputs: ['user_inputs'],
+        templateUrl: 'app/Users/template/user.component.template.html'
+    }),
+    __metadata("design:paramtypes", [])
+], UserComponent);
 exports.UserComponent = UserComponent;
 //# sourceMappingURL=user.component.js.map

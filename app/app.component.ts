@@ -13,7 +13,7 @@ import {UserComponent} from './Users/user.component';
 @Component({
 	selector:'my-app',
 	// directives:[ArticleComponent,UserComponent,FormComponent],
-	templateUrl:'app/templates/app.component.template.html'
+	templateUrl:'app/app.component.templates/app.component.templates.html'
 })
 
 export class AppComponent {
