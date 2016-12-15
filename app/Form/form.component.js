@@ -18,6 +18,7 @@ FormComponent = __decorate([
     core_1.Component({
         selector: 'article-form',
         // inputs:['form-inputs'],
+        // template:`CHUJ`
         templateUrl: 'app/Form/template/form.component.template.html'
     }),
     __metadata("design:paramtypes", [])

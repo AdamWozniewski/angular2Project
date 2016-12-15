@@ -5,7 +5,7 @@ var User = (function () {
         this.name = name_c;
         this.lastName = lastName_c;
         this.password = password_c;
-        this.avatar = avatar_c;
+        this.avatar = avatar_c || "perm_identity";
     }
     return User;
 }());

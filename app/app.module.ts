@@ -14,7 +14,7 @@ import { UserComponent } from "./Users/user.component";
 
 @NgModule({
 	imports: 		[BrowserModule],
-	declarations: 	[AppComponent,ArticleComponent,UserComponent],
+	declarations: 	[AppComponent,ArticleComponent,UserComponent,FormComponent],
 	bootstrap: 		[AppComponent],
 })
 

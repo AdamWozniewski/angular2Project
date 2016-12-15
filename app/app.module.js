@@ -12,6 +12,7 @@ var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var app_component_1 = require("./app.component");
 var article_component_1 = require("./Article/article.component");
+var form_component_1 = require("./Form/form.component");
 var user_component_1 = require("./Users/user.component");
 var AppModule = (function () {
     function AppModule() {
@@ -21,7 +22,7 @@ var AppModule = (function () {
 AppModule = __decorate([
     core_1.NgModule({
         imports: [platform_browser_1.BrowserModule],
-        declarations: [app_component_1.AppComponent, article_component_1.ArticleComponent, user_component_1.UserComponent],
+        declarations: [app_component_1.AppComponent, article_component_1.ArticleComponent, user_component_1.UserComponent, form_component_1.FormComponent],
         bootstrap: [app_component_1.AppComponent],
     }),
     __metadata("design:paramtypes", [])
