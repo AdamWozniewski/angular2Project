@@ -9,18 +9,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var article_1 = require("./Article/article");
 var AppComponent = (function () {
     function AppComponent() {
+        this.articles_array = ARTICLES;
     }
     return AppComponent;
 }());
 AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
-        // directives:[ArticleComponent,UserComponent,FormComponent],
+        // declarations: [ArticleComponent,UserComponent,FormComponent],
         templateUrl: 'app/app.component.templates/app.component.templates.html'
     }),
     __metadata("design:paramtypes", [])
 ], AppComponent);
 exports.AppComponent = AppComponent;
+//ZRÓDŁO DANYCH 
+var ARTICLES = [
+    new article_1.Article("tytuł1", "opis1", "link1", "obrazek1", 0),
+    new article_1.Article("tytuł2", "opis2", "link2", "obrazek2", 0),
+];
 //# sourceMappingURL=app.component.js.map

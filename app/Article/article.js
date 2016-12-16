@@ -7,6 +7,12 @@ var Article = (function () {
         this.image = image_c;
         this.votes = votes_c || 0;
     }
+    Article.prototype.votesPlus = function () {
+        this.votes += 1;
+    };
+    Article.prototype.votesMinus = function () {
+        this.votes -= 1;
+    };
     return Article;
 }());
 exports.Article = Article;

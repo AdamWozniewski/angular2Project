@@ -13,7 +13,7 @@
 
 
 <div class="container">
-	<single-art></single-art>
+	<single-art *ngFor="let article of articles_array" [article_inputs]="article"></single-art> <!-- 'articles_inputs' przyjmuje dane z 'article' z app.component-->
 </div>
 
 

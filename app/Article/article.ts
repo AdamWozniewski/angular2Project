@@ -13,4 +13,11 @@ export class Article{
 		this.votes=votes_c || 0;
 
 	}
+
+	votesPlus():void{
+		this.votes+=1;
+	}
+	votesMinus():void{
+		this.votes-=1;
+	}
 }

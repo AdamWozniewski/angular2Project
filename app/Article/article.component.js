@@ -12,12 +12,17 @@ var core_1 = require("@angular/core");
 var ArticleComponent = (function () {
     function ArticleComponent() {
     }
+    ArticleComponent.prototype.votesPlusComponent = function () {
+    };
     return ArticleComponent;
 }());
 ArticleComponent = __decorate([
     core_1.Component({
         selector: 'single-art',
         inputs: ['article_inputs'],
+        host: {
+            class: 'angl2-class-dynamic'
+        },
         templateUrl: 'app/Article/template/article.component.template.html'
     }),
     __metadata("design:paramtypes", [])
