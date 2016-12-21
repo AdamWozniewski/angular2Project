@@ -11,9 +11,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 // Serwisy danych
 var article_services_1 = require("./Services/article.services");
+var users_services_1 = require("./Services/users.services");
 var AppComponent = (function () {
-    function AppComponent(_articleService) {
+    function AppComponent(_articleService, _userService) {
         this._articleService = _articleService;
+        this._userService = _userService;
     }
     AppComponent.prototype.getArticlesInAppComponent = function () {
         var _this = this;
@@ -21,18 +23,23 @@ var AppComponent = (function () {
         //pobierz artykuły z metody getArticles, JEŻELI to się nie uda, stwórz funckję i do zmiennej tablicowej przypisz błąd
         // this.articles_array=this._articleService.getArticles(); //pobierz do komponentu dane
     };
+    AppComponent.prototype.getUsersInAppComponent = function () {
+        var _this = this;
+        this._userService.getUsers().then(function (users_error) { return _this.users_array = users_error; });
+    };
     AppComponent.prototype.ngOnInit = function () {
         this.getArticlesInAppComponent(); // Gdy aplikacja się uruchamia, wykonaj metodę pobierająca Dane do Komponentu;
+        this.getUsersInAppComponent(); // Gdy aplikacja się uruchamia, wykonaj metodę pobierająca Dane do Komponentu;
     };
     return AppComponent;
 }());
 AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
-        providers: [article_services_1.ArticleServices],
+        providers: [article_services_1.ArticleServices, users_services_1.UserServices],
         templateUrl: 'app/app.component.templates/app.component.templates.html'
     }),
-    __metadata("design:paramtypes", [article_services_1.ArticleServices])
+    __metadata("design:paramtypes", [article_services_1.ArticleServices, users_services_1.UserServices])
 ], AppComponent);
 exports.AppComponent = AppComponent;
 //# sourceMappingURL=app.component.js.map
