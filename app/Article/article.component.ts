@@ -15,7 +15,8 @@ export class ArticleComponent{
 	article:Article; // pobranie do komponentu obiektu typu Article
 
 	votesPlusComponent():void{
-		
+		console.log(this.article);
+		// this.article.votesPlus();
 	}
 
 }

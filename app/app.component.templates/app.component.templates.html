@@ -23,7 +23,7 @@
 		<div class="col s12">
 			
 		</div>
-		<users></users>
+		<users *ngFor="let user_jeden of users_array" [user_inputs]="user_jeden"></users>
 		<div class="col s12">
 			<hr>
 		</div>

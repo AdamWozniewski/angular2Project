@@ -9,25 +9,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var article_1 = require("./Article/article");
+// Serwisy danych
+var article_services_1 = require("./Services/article.services");
 var AppComponent = (function () {
-    function AppComponent() {
-        this.articles_array = ARTICLES;
+    function AppComponent(_articleService) {
+        this._articleService = _articleService;
     }
+    AppComponent.prototype.getArticlesInAppComponent = function () {
+        var _this = this;
+        this._articleService.getArticles().then(function (articles_error) { return _this.articles_array = articles_error; }); // Asynchroniczna Usługa:
+        //pobierz artykuły z metody getArticles, JEŻELI to się nie uda, stwórz funckję i do zmiennej tablicowej przypisz błąd
+        // this.articles_array=this._articleService.getArticles(); //pobierz do komponentu dane
+    };
+    AppComponent.prototype.ngOnInit = function () {
+        this.getArticlesInAppComponent(); // Gdy aplikacja się uruchamia, wykonaj metodę pobierająca Dane do Komponentu;
+    };
     return AppComponent;
 }());
 AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
-        // declarations: [ArticleComponent,UserComponent,FormComponent],
+        providers: [article_services_1.ArticleServices],
         templateUrl: 'app/app.component.templates/app.component.templates.html'
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [article_services_1.ArticleServices])
 ], AppComponent);
 exports.AppComponent = AppComponent;
-//ZRÓDŁO DANYCH 
-var ARTICLES = [
-    new article_1.Article("tytuł1", "opis1", "link1", "obrazek1", 0),
-    new article_1.Article("tytuł2", "opis2", "link2", "obrazek2", 0),
-];
 //# sourceMappingURL=app.component.js.map

@@ -8,26 +8,20 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require("@angular/core");
-var ArticleComponent = (function () {
-    function ArticleComponent() {
+var DataBase_1 = require("./../dataBase/DataBase"); // Pobierz do usługi BAZĘ DANYCH
+var core_1 = require("@angular/core"); // Wstrzykiwanie zależności
+var ArticleServices = (function () {
+    function ArticleServices() {
     }
-    ArticleComponent.prototype.votesPlusComponent = function () {
-        console.log(this.article);
-        // this.article.votesPlus();
+    ArticleServices.prototype.getArticles = function () {
+        return Promise.resolve(DataBase_1.ARTICLES); // O
+        // return ARTICLES;   // Pobierz Wszystkie artykuły z 'bazy danych'
     };
-    return ArticleComponent;
+    return ArticleServices;
 }());
-ArticleComponent = __decorate([
-    core_1.Component({
-        selector: 'single-art',
-        inputs: ['article_inputs'],
-        host: {
-            class: 'angl2-class-dynamic'
-        },
-        templateUrl: 'app/Article/template/article.component.template.html'
-    }),
+ArticleServices = __decorate([
+    core_1.Injectable(),
     __metadata("design:paramtypes", [])
-], ArticleComponent);
-exports.ArticleComponent = ArticleComponent;
-//# sourceMappingURL=article.component.js.map
+], ArticleServices);
+exports.ArticleServices = ArticleServices;
+//# sourceMappingURL=article.services.js.map

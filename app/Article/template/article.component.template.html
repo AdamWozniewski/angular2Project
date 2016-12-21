@@ -8,8 +8,8 @@
 			<p>{{ article_inputs.desc }}</p>
 			<a href="{{ article_inputs.link }}" class="alng2-user-one-article-desc-link">zobacz więcej <i class="tiny material-icons">play_arrow</i> </a>
 			<div class="alng2-user-one-article-desc-offset"></div>
-			<i class="small material-icons" (click)="votesPlusComponent()"  onclick="Materialize.toast('<h2>+ ( ͡° ͜ʖ ͡°) <h2>', 1000)">thumb_up</i>
-			<i class="small material-icons"  onclick="Materialize.toast('<h2>- ( ͡° ʖ̯ ͡°) <h2>', 1000)">thumb_down</i>
+			<i class="small material-icons" (click)="article_inputs.votesPlus()"  onclick="Materialize.toast('<h2>+ ( ͡° ͜ʖ ͡°) <h2>', 1000)">thumb_up</i>
+			<i class="small material-icons" (click)="article_inputs.votesMinus()" onclick="Materialize.toast('<h2>- ( ͡° ʖ̯ ͡°) <h2>', 1000)">thumb_down</i>
 			<h5>{{ article_inputs.votes }}</h5>
 			
 			
