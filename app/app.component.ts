@@ -1,7 +1,11 @@
 import {Component} from "@angular/core";
+import {Inject} from "@angular/core";
 import {Directive} from "@angular/core";
-import {NgFor} from "@angular/common";
 import {OnInit} from "@angular/core";
+import {NgFor} from "@angular/common";
+import {NgIf} from '@angular/common';
+import {NgForm} from '@angular/forms';
+import {Validators, FormBuilder/*,ReactiveFormsModule*/,FormGroup,FormControl} from "@angular/forms"; // Import formluarzy  'FormControl' to dawne ControlGroup
 
 
 //Komponenty
@@ -13,25 +17,45 @@ import { FormComponent } from './Form/form.component';
 import {User} from './Users/User';
 import {UserComponent} from './Users/user.component';
 
+import {Gallery} from './Gallery/Gallery';
+import {GalleryComponent} from './Gallery/gallery.component';
 
 // Serwisy danych
 import {ArticleServices} from './Services/article.services';
 import {UserServices} from './Services/users.services';
+import {GalleryService} from './Services/gallery.services';
+
 
 
 
 @Component({
+	moduleId: module.id,
 	selector:'my-app',
-	providers:[ArticleServices,UserServices], // Dostarcza dane do Komponentu z zewnętrznego pliku !
-	templateUrl:'app/app.component.templates/app.component.templates.html'
+	providers:[ArticleServices,UserServices,GalleryService ,FormBuilder], // Dostarcza dane do Komponentu z zewnętrznego pliku !, FormBulider też jest providerrem
+	templateUrl:'app.component.templates/app.component.templates.html'
 })
 
 export class AppComponent implements OnInit{ // implementujemy Interfejs
 	articles_array:Article[]; // Zmienna przechowująca Artykuły 
 	users_array:User[];
+	gallery_array:Gallery[];
 
-	constructor(private _articleService:ArticleServices, private _userService:UserServices){
+	formSubmit:FormComponent; // połączenie z formularzem dodawania nowych ludków 
+
+	
+	// userForm: FormGroup=new FormGroup({
+	// 	name:new FormControl() // Pojedyncza Kontrolka dla formularza  AppComponent !!
+	// }); // dawnie było articleForm:FormControl=new FormGroup
+
+	constructor(private _articleService:ArticleServices, private _userService:UserServices, private _gallerySerice:GalleryService ,private _formB:FormBuilder /* @Inject(FormBuilder) _formB: FormBuilder */){
+		// this.userForm=_formB.group({
+		// 	name:this.name //Zgrupowanie kontrolek !
+		// });
+		// this.userForm=_formB.group({
+		// 	name:this.name //Zgrupowanie kontrolek !
+		// });
 	}
+
 
 	getArticlesInAppComponent(){
 		this._articleService.getArticles().then(articles_error=>this.articles_array=articles_error); // Asynchroniczna Usługa:
@@ -44,9 +68,28 @@ export class AppComponent implements OnInit{ // implementujemy Interfejs
 		this._userService.getUsers().then(users_error=>this.users_array=users_error);
 	}
 
+	getGalleryInAppComponent(){
+		this._gallerySerice.getGallery().then(gallery_error=>this.gallery_array=gallery_error); //suługa asynchroniczna
+		// this._gallerySerice.getGallery();// pobierz dane do komponentu
+	}
+
 	ngOnInit(){ // implementacja metody Interfejsu
-		this.getArticlesInAppComponent(); // Gdy aplikacja się uruchamia, wykonaj metodę pobierająca Dane do Komponentu;
-		this.getUsersInAppComponent(); // Gdy aplikacja się uruchamia, wykonaj metodę pobierająca Dane do Komponentu;
+		this.getArticlesInAppComponent();
+		this.getUsersInAppComponent(); 			// Gdy aplikacja się uruchamia, wykonaj metodę pobierająca Dane do Komponentu;
+		this.getGalleryInAppComponent();
+		
+		console.log("init od appComponent");
+		// this.userForm=this._formB.group({
+		// 	name:''                          // Inicjalizacja formularza dla AppComponent !!
+		// });
+		
+	}
+
+	onSubmit2(){
+		alert(this.formSubmit.onSubmit());
+		// this.users_array.push(new User(1,this.userForm.value.name,this.userForm.value.name,this.userForm.value.name));
+		this.users_array.push(new User(1,this.formSubmit.onSubmit(),this.formSubmit.onSubmit(),this.formSubmit.onSubmit()));
+			
 	}
 
 }

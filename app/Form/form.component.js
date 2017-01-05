@@ -9,19 +9,40 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var forms_1 = require("@angular/forms");
 var FormComponent = (function () {
-    function FormComponent() {
+    function FormComponent(formBuilder) {
+        this.formBuilder = formBuilder;
+        this.values = [];
     }
+    // onSubmit(userForm:NgForm){
+    FormComponent.prototype.ngOnInit = function () {
+        console.log("init od forma");
+        this.primeFormUser = this.formBuilder.group({
+            firstName: '',
+        });
+    };
+    FormComponent.prototype.onSubmit = function () {
+        // console.log("działa on submit");
+        return this.primeFormUser.value.firstName;
+        // alert(this.primeFormUser.value.firstName);
+        // this.values[0]=userForm.value.first;
+        // this.name=f.value.first;
+        // console.log(this.values[0]);
+        // return this.values;
+        // this.values[0].updateValue="";
+    };
     return FormComponent;
 }());
 FormComponent = __decorate([
     core_1.Component({
+        moduleId: module.id,
         selector: 'article-form',
-        // inputs:['form-inputs'],
-        // template:`CHUJ`
-        templateUrl: 'app/Form/template/form.component.template.html'
+        providers: [forms_1.FormBuilder],
+        inputs: ['form_inputs'],
+        templateUrl: 'template/form.component.template.html'
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [forms_1.FormBuilder])
 ], FormComponent);
 exports.FormComponent = FormComponent;
 //# sourceMappingURL=form.component.js.map

@@ -10,11 +10,12 @@ import { FormComponent } from "./Form/form.component";
 import { User } from "./Users/User";
 import { UserComponent } from "./Users/user.component";
 
-
+import { Gallery } from "./Gallery/Gallery";
+import { GalleryComponent } from "./Gallery/gallery.component";
 
 @NgModule({
 	imports: 		[BrowserModule],
-	declarations: 	[AppComponent,ArticleComponent,UserComponent,FormComponent],
+	declarations: 	[AppComponent,ArticleComponent,UserComponent,FormComponent,GalleryComponent],
 	bootstrap: 		[AppComponent],
 })
 

@@ -9,13 +9,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var forms_1 = require("@angular/forms"); // Import formluarzy  'FormControl' to dawne ControlGroup
+var User_1 = require("./Users/User");
 // Serwisy danych
 var article_services_1 = require("./Services/article.services");
 var users_services_1 = require("./Services/users.services");
+var gallery_services_1 = require("./Services/gallery.services");
 var AppComponent = (function () {
-    function AppComponent(_articleService, _userService) {
+    // userForm: FormGroup=new FormGroup({
+    // 	name:new FormControl() // Pojedyncza Kontrolka dla formularza  AppComponent !!
+    // }); // dawnie było articleForm:FormControl=new FormGroup
+    function AppComponent(_articleService, _userService, _gallerySerice, _formB /* @Inject(FormBuilder) _formB: FormBuilder */) {
         this._articleService = _articleService;
         this._userService = _userService;
+        this._gallerySerice = _gallerySerice;
+        this._formB = _formB; /* @Inject(FormBuilder) _formB: FormBuilder */
+        // this.userForm=_formB.group({
+        // 	name:this.name //Zgrupowanie kontrolek !
+        // });
+        // this.userForm=_formB.group({
+        // 	name:this.name //Zgrupowanie kontrolek !
+        // });
     }
     AppComponent.prototype.getArticlesInAppComponent = function () {
         var _this = this;
@@ -27,19 +41,35 @@ var AppComponent = (function () {
         var _this = this;
         this._userService.getUsers().then(function (users_error) { return _this.users_array = users_error; });
     };
+    AppComponent.prototype.getGalleryInAppComponent = function () {
+        var _this = this;
+        this._gallerySerice.getGallery().then(function (gallery_error) { return _this.gallery_array = gallery_error; }); //suługa asynchroniczna
+        // this._gallerySerice.getGallery();// pobierz dane do komponentu
+    };
     AppComponent.prototype.ngOnInit = function () {
-        this.getArticlesInAppComponent(); // Gdy aplikacja się uruchamia, wykonaj metodę pobierająca Dane do Komponentu;
+        this.getArticlesInAppComponent();
         this.getUsersInAppComponent(); // Gdy aplikacja się uruchamia, wykonaj metodę pobierająca Dane do Komponentu;
+        this.getGalleryInAppComponent();
+        console.log("init od appComponent");
+        // this.userForm=this._formB.group({
+        // 	name:''                          // Inicjalizacja formularza dla AppComponent !!
+        // });
+    };
+    AppComponent.prototype.onSubmit2 = function () {
+        alert(this.formSubmit.onSubmit());
+        // this.users_array.push(new User(1,this.userForm.value.name,this.userForm.value.name,this.userForm.value.name));
+        this.users_array.push(new User_1.User(1, this.formSubmit.onSubmit(), this.formSubmit.onSubmit(), this.formSubmit.onSubmit()));
     };
     return AppComponent;
 }());
 AppComponent = __decorate([
     core_1.Component({
+        moduleId: module.id,
         selector: 'my-app',
-        providers: [article_services_1.ArticleServices, users_services_1.UserServices],
-        templateUrl: 'app/app.component.templates/app.component.templates.html'
+        providers: [article_services_1.ArticleServices, users_services_1.UserServices, gallery_services_1.GalleryService, forms_1.FormBuilder],
+        templateUrl: 'app.component.templates/app.component.templates.html'
     }),
-    __metadata("design:paramtypes", [article_services_1.ArticleServices, users_services_1.UserServices])
+    __metadata("design:paramtypes", [article_services_1.ArticleServices, users_services_1.UserServices, gallery_services_1.GalleryService, forms_1.FormBuilder /* @Inject(FormBuilder) _formB: FormBuilder */])
 ], AppComponent);
 exports.AppComponent = AppComponent;
 //# sourceMappingURL=app.component.js.map
