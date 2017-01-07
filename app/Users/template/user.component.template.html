@@ -1,10 +1,12 @@
 <div class="col s12 m4 l3">
 	<div class="alng2-user-one-profile">
 		<!-- <img src="static/img/oneProfile.jpg" alt="" class="responsive-img"> -->
-		<i class="medium material-icons">perm_identity</i>
+		<i *ngIf="user_inputs.avatar =='perm_identity'" class="medium material-icons">perm_identity</i>
+		<img *ngIf="user_inputs.avatar !='perm_identity'" src="static/img/uploads/{{user_inputs.avatar}}" alt="" class="responsive-img" width="50" height="auto">
 		<div class="alng2-user-one-profile-info">
 			<h5>{{user_inputs.name}} &nbsp; {{user_inputs.lastName}} </h5>
-			<h5>{{user_inputs.id}}</h5>
+			<p>{{user_inputs.email}} </p>
+			<p>{{user_inputs.id}}</p>
 		</div>
 	</div>
 </div>

@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {OnInit} from "@angular/core";
+import {NgClass} from "@angular/common";
 import {NgForm} from '@angular/forms';
 import { FormGroup, FormControl,FormBuilder,Validators } from '@angular/forms';
 
@@ -20,19 +21,26 @@ export class FormComponent implements OnInit{
 	// primeFormUser:FormGroup;
 	primeFormUser: FormGroup; // dawnie było articleForm:FormControl=new FormGroup
 
-	constructor(private formBuilder: FormBuilder) {}
+	constructor(private formBuilder: FormBuilder) {
+		this.primeFormUser=this.formBuilder.group({
+			firstName: new FormControl("",Validators.required)  // pole Wymagane                      // Inicjalizacja formularza dla AppComponent !!
+		});
+	}
 	// onSubmit(userForm:NgForm){
 	
 	ngOnInit() {
 		console.log("init od forma");
-		this.primeFormUser=this.formBuilder.group({
-			firstName:'',
-		});
+
+
+		// this.primeFormUser=this.formBuilder.group({
+		// 	firstName:''                          // Inicjalizacja formularza dla FormComponent !!  Może być tutaj albo w konstruktorze
+		// });
 	}
 
 	onSubmit(){
 			// console.log("działa on submit");
-			return this.primeFormUser.value.firstName;
+			alert("działa");
+			// return this.primeFormUser.value.firstName;
 			// alert(this.primeFormUser.value.firstName);
 			// this.values[0]=userForm.value.first;
 			// this.name=f.value.first;

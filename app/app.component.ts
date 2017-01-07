@@ -25,7 +25,7 @@ import {ArticleServices} from './Services/article.services';
 import {UserServices} from './Services/users.services';
 import {GalleryService} from './Services/gallery.services';
 
-
+// http://blog.thoughtram.io/angular/2016/06/22/model-driven-forms-in-angular-2.html <- formularze
 
 
 @Component({
@@ -40,20 +40,14 @@ export class AppComponent implements OnInit{ // implementujemy Interfejs
 	users_array:User[];
 	gallery_array:Gallery[];
 
-	formSubmit:FormComponent; // połączenie z formularzem dodawania nowych ludków 
-
-	
-	// userForm: FormGroup=new FormGroup({
-	// 	name:new FormControl() // Pojedyncza Kontrolka dla formularza  AppComponent !!
-	// }); // dawnie było articleForm:FormControl=new FormGroup
+	formSubmit:FormComponent; // połączenie z formularzem dodawania nowych ludków
+	// userForm:FormGroup; // Obiekt obsługujący formularz
+	 // userForm: FormGroup=new FormGroup({
+	 // 	name:new FormControl() // Pojedyncza Kontrolka dla formularza  AppComponent !!
+	 // }); // dawnie było articleForm:FormControl=new FormGroup
 
 	constructor(private _articleService:ArticleServices, private _userService:UserServices, private _gallerySerice:GalleryService ,private _formB:FormBuilder /* @Inject(FormBuilder) _formB: FormBuilder */){
-		// this.userForm=_formB.group({
-		// 	name:this.name //Zgrupowanie kontrolek !
-		// });
-		// this.userForm=_formB.group({
-		// 	name:this.name //Zgrupowanie kontrolek !
-		// });
+		
 	}
 
 
@@ -77,8 +71,7 @@ export class AppComponent implements OnInit{ // implementujemy Interfejs
 		this.getArticlesInAppComponent();
 		this.getUsersInAppComponent(); 			// Gdy aplikacja się uruchamia, wykonaj metodę pobierająca Dane do Komponentu;
 		this.getGalleryInAppComponent();
-		
-		console.log("init od appComponent");
+
 		// this.userForm=this._formB.group({
 		// 	name:''                          // Inicjalizacja formularza dla AppComponent !!
 		// });
@@ -86,9 +79,10 @@ export class AppComponent implements OnInit{ // implementujemy Interfejs
 	}
 
 	onSubmit2(){
-		alert(this.formSubmit.onSubmit());
+		alert("chuj");
+		// alert(this.formSubmit.onSubmit());
 		// this.users_array.push(new User(1,this.userForm.value.name,this.userForm.value.name,this.userForm.value.name));
-		this.users_array.push(new User(1,this.formSubmit.onSubmit(),this.formSubmit.onSubmit(),this.formSubmit.onSubmit()));
+		// this.users_array.push(new User(1,this.formSubmit.onSubmit(),this.formSubmit.onSubmit(),this.formSubmit.onSubmit()));
 			
 	}
 

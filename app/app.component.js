@@ -10,12 +10,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var forms_1 = require("@angular/forms"); // Import formluarzy  'FormControl' to dawne ControlGroup
-var User_1 = require("./Users/User");
 // Serwisy danych
 var article_services_1 = require("./Services/article.services");
 var users_services_1 = require("./Services/users.services");
 var gallery_services_1 = require("./Services/gallery.services");
+// http://blog.thoughtram.io/angular/2016/06/22/model-driven-forms-in-angular-2.html <- formularze
 var AppComponent = (function () {
+    // userForm:FormGroup; // Obiekt obsługujący formularz
     // userForm: FormGroup=new FormGroup({
     // 	name:new FormControl() // Pojedyncza Kontrolka dla formularza  AppComponent !!
     // }); // dawnie było articleForm:FormControl=new FormGroup
@@ -24,12 +25,6 @@ var AppComponent = (function () {
         this._userService = _userService;
         this._gallerySerice = _gallerySerice;
         this._formB = _formB; /* @Inject(FormBuilder) _formB: FormBuilder */
-        // this.userForm=_formB.group({
-        // 	name:this.name //Zgrupowanie kontrolek !
-        // });
-        // this.userForm=_formB.group({
-        // 	name:this.name //Zgrupowanie kontrolek !
-        // });
     }
     AppComponent.prototype.getArticlesInAppComponent = function () {
         var _this = this;
@@ -50,15 +45,15 @@ var AppComponent = (function () {
         this.getArticlesInAppComponent();
         this.getUsersInAppComponent(); // Gdy aplikacja się uruchamia, wykonaj metodę pobierająca Dane do Komponentu;
         this.getGalleryInAppComponent();
-        console.log("init od appComponent");
         // this.userForm=this._formB.group({
         // 	name:''                          // Inicjalizacja formularza dla AppComponent !!
         // });
     };
     AppComponent.prototype.onSubmit2 = function () {
-        alert(this.formSubmit.onSubmit());
+        alert("chuj");
+        // alert(this.formSubmit.onSubmit());
         // this.users_array.push(new User(1,this.userForm.value.name,this.userForm.value.name,this.userForm.value.name));
-        this.users_array.push(new User_1.User(1, this.formSubmit.onSubmit(), this.formSubmit.onSubmit(), this.formSubmit.onSubmit()));
+        // this.users_array.push(new User(1,this.formSubmit.onSubmit(),this.formSubmit.onSubmit(),this.formSubmit.onSubmit()));
     };
     return AppComponent;
 }());

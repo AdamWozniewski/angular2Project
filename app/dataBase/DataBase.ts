@@ -13,12 +13,12 @@ export var ARTICLES:Article[]=[
 
 //Export Użytkowników
 export var  USERS:User[]=[
-	new User(1,"adam","W","admin"),
-	new User(2,"adam2","W2","admin2")
+	new User(1,"adam","W","admin","example@example.pl","obrazek1.jpg"),
+	new User(2,"adam2","W2","admin2","example@example.pl")
 ];
 //Export Użytkowników
 export var  GALLERIES:Gallery[]=[
-	new Gallery(1,"opis1","W"),
-	new Gallery(2,"opis2","W2")
+	new Gallery(1,"obrazek1.jpg","obrazek1.jpg"),
+	new Gallery(2,"obrazek1.jpg","W2")
 ];
 

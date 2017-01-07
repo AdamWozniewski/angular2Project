@@ -9,12 +9,12 @@ exports.ARTICLES = [
 ];
 //Export Użytkowników
 exports.USERS = [
-    new User_1.User(1, "adam", "W", "admin"),
-    new User_1.User(2, "adam2", "W2", "admin2")
+    new User_1.User(1, "adam", "W", "admin", "example@example.pl", "obrazek1.jpg"),
+    new User_1.User(2, "adam2", "W2", "admin2", "example@example.pl")
 ];
 //Export Użytkowników
 exports.GALLERIES = [
-    new Gallery_1.Gallery(1, "opis1", "W"),
-    new Gallery_1.Gallery(2, "opis2", "W2")
+    new Gallery_1.Gallery(1, "obrazek1.jpg", "obrazek1.jpg"),
+    new Gallery_1.Gallery(2, "obrazek1.jpg", "W2")
 ];
 //# sourceMappingURL=DataBase.js.map

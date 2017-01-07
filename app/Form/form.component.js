@@ -14,17 +14,21 @@ var FormComponent = (function () {
     function FormComponent(formBuilder) {
         this.formBuilder = formBuilder;
         this.values = [];
+        this.primeFormUser = this.formBuilder.group({
+            firstName: new forms_1.FormControl("", forms_1.Validators.required) // pole Wymagane                      // Inicjalizacja formularza dla AppComponent !!
+        });
     }
     // onSubmit(userForm:NgForm){
     FormComponent.prototype.ngOnInit = function () {
         console.log("init od forma");
-        this.primeFormUser = this.formBuilder.group({
-            firstName: '',
-        });
+        // this.primeFormUser=this.formBuilder.group({
+        // 	firstName:''                          // Inicjalizacja formularza dla FormComponent !!  Może być tutaj albo w konstruktorze
+        // });
     };
     FormComponent.prototype.onSubmit = function () {
         // console.log("działa on submit");
-        return this.primeFormUser.value.firstName;
+        alert("działa");
+        // return this.primeFormUser.value.firstName;
         // alert(this.primeFormUser.value.firstName);
         // this.values[0]=userForm.value.first;
         // this.name=f.value.first;

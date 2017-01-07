@@ -1,7 +1,7 @@
 import {NgModule} from "@angular/core";
 import {BrowserModule} from "@angular/platform-browser";
 import {AppComponent} from "./app.component";
-
+import { ReactiveFormsModule } from '@angular/forms';
 import {Article} from "./Article/article";
 import {ArticleComponent} from "./Article/article.component";
 
@@ -14,7 +14,7 @@ import { Gallery } from "./Gallery/Gallery";
 import { GalleryComponent } from "./Gallery/gallery.component";
 
 @NgModule({
-	imports: 		[BrowserModule],
+	imports: 		[BrowserModule,ReactiveFormsModule],
 	declarations: 	[AppComponent,ArticleComponent,UserComponent,FormComponent,GalleryComponent],
 	bootstrap: 		[AppComponent],
 })

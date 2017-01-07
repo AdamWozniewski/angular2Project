@@ -4,8 +4,8 @@
 	</div>
 	<div class="col s12 m8 l10">
 		<div class="alng2-user-one-article-desc">
-			<h5>{{ article_inputs.title }}</h5>
-			<p>{{ article_inputs.desc }}</p>
+			<h5>{{ article_inputs.title | uppercase }}</h5>
+			<p>{{ article_inputs.desc  | slice:0:30}}...</p> <!-- Pipe filtruj ilośc znaków -->
 			<a href="{{ article_inputs.link }}" class="alng2-user-one-article-desc-link">zobacz więcej <i class="tiny material-icons">play_arrow</i> </a>
 			<div class="alng2-user-one-article-desc-offset"></div>
 			<i class="small material-icons" (click)="article_inputs.votesPlus()"  onclick="Materialize.toast('<h2>+ ( ͡° ͜ʖ ͡°) <h2>', 1000)">thumb_up</i>

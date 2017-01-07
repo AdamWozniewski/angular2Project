@@ -1,38 +1,38 @@
- <form class="col s12" [formGroup]="primeFormUser" novalidate (ngSubmit)="onSubmit()">
-      <div class="row">
-        <div class="input-field col s6" >
-          <input  id="first_name" formControlName="firstName" type="text" class="validate" >
-          <label for="first_name"   >First Name</label>
+<form class="col s12" [formGroup]="primeFormUser">
+    <div class="row">
+        <div class="input-field col s6" >           <!-- dodaj klasę 'valid' : gdy pole formularza dotknięte-->
+            <input  id="first_name" [ngClass]="{validate :  primeFormUser.controls.firstName.touched }" formControlName="firstName" type="text" class="validate" > <!-- Pojedyńcze pole formularza-->
+            <label for="first_name"   >First Name</label>
         </div>
         <div class="input-field col s6">
-          <input id="last_name" type="text" class="validate">
-          <label for="last_name" >Last Name</label>
+            <input id="last_name" type="text" class="validate">
+            <label for="last_name" >Last Name</label>
         </div>
-      </div>
-      
-      <div class="row" >
-        <div class="input-field col s12">
-          <input id="password" type="password" class="validate">
-          <label for="password">Password</label>
-        </div>
-      </div>
-     
-     	<div class="row">
-        <div class="input-field col s12">
-          <input id="avatar" type="text" class="validate">
-          <label for="avatar">Avatar</label>
-        </div>
-      </div>
+    </div>
 
-		<div class="row">
-        	<div class="input-field col s12">
-        	    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-    				<i class="material-icons right">send</i>
-  				</button>
-        	</div>
+    <div class="row" >
+        <div class="input-field col s12">
+            <input id="password" type="password" class="validate">
+            <label for="password">Password</label>
         </div>
+    </div>
 
-    </form>
+    <div class="row">
+        <div class="input-field col s12">
+            <input id="avatar" type="text" class="validate">
+            <label for="avatar">Avatar</label>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="input-field col s12">                <!-- Dodanie dyrektywy sprawdzająca zwalidowane pola-->
+            <button class="btn waves-effect waves-light" [ngClass]="{disabled: !primeFormUser.valid }"   type="submit" name="action">Submit
+                <i class="material-icons right">send</i>
+            </button>
+        </div>
+    </div>
+
+</form>
 
 
 
