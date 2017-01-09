@@ -84,12 +84,11 @@ export class AppComponent implements OnInit{ // implementujemy Interfejs
 	}
 
 	onSubmitAppComponent(value:number){
-		this.number=value;
-    	alert(this.number);
-		// alert("submit 2");
-		// alert(this.formSubmit.onSubmit());
-		// this.users_array.push(new User(1,this.userForm.value.name,this.userForm.value.name,this.userForm.value.name));
-		// this.users_array.push(new User(1,this.formSubmit.onSubmit(),this.formSubmit.onSubmit(),this.formSubmit.onSubmit()));
+		this.number=value[0];
+
+		alert(this.number);
+		
+		// this.users_array.push(new User(this.number,this.number,this.number,this.number,this.number));
 	}
 
 }

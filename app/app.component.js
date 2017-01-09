@@ -53,12 +53,9 @@ var AppComponent = (function () {
         // });
     };
     AppComponent.prototype.onSubmitAppComponent = function (value) {
-        this.number = value;
+        this.number = value[0];
         alert(this.number);
-        // alert("submit 2");
-        // alert(this.formSubmit.onSubmit());
-        // this.users_array.push(new User(1,this.userForm.value.name,this.userForm.value.name,this.userForm.value.name));
-        // this.users_array.push(new User(1,this.formSubmit.onSubmit(),this.formSubmit.onSubmit(),this.formSubmit.onSubmit()));
+        // this.users_array.push(new User(this.number,this.number,this.number,this.number,this.number));
     };
     return AppComponent;
 }());

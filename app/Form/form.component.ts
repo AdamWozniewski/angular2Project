@@ -25,6 +25,7 @@ export class FormComponent implements OnInit{
 	// primeFormUser:FormGroup;
 	primeFormUser: FormGroup; // dawnie było articleForm:FormControl=new FormGroup
 
+	arra:any;
 
 	constructor(private formBuilder: FormBuilder) {
 		this.primeFormUser=this.formBuilder.group({
@@ -46,8 +47,17 @@ export class FormComponent implements OnInit{
 
 
 	onSubmit(){
-			
-			this.articleChange.emit(this.primeFormUser.value.firstName);
+		
+		this.arra[0]=this.primeFormUser.value.firstName;
+
+		// this.articleChange.emit(this.primeFormUser.value.firstName);
+		this.articleChange.emit(this.arra[0]);
+
+		this.primeFormUser.value.firstName="";
+		this.primeFormUser.value.LastName="";
+		this.primeFormUser.value.psswd="";
+		this.primeFormUser.value.email="";
+		this.primeFormUser.value.avatar="";
 
 	}
 

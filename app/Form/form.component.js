@@ -29,7 +29,14 @@ var FormComponent = (function () {
         // });
     };
     FormComponent.prototype.onSubmit = function () {
-        this.articleChange.emit(this.primeFormUser.value.firstName);
+        this.arra[0] = this.primeFormUser.value.firstName;
+        // this.articleChange.emit(this.primeFormUser.value.firstName);
+        this.articleChange.emit(this.arra[0]);
+        this.primeFormUser.value.firstName = "";
+        this.primeFormUser.value.LastName = "";
+        this.primeFormUser.value.psswd = "";
+        this.primeFormUser.value.email = "";
+        this.primeFormUser.value.avatar = "";
     };
     return FormComponent;
 }());
