@@ -16,7 +16,9 @@ var users_services_1 = require("./Services/users.services");
 var gallery_services_1 = require("./Services/gallery.services");
 // http://blog.thoughtram.io/angular/2016/06/22/model-driven-forms-in-angular-2.html <- formularze
 var AppComponent = (function () {
+    // formSubmit:FormComponent; // połączenie z formularzem dodawania nowych ludków
     // userForm:FormGroup; // Obiekt obsługujący formularz
+    // chuj:String="lafnafnfn";
     // userForm: FormGroup=new FormGroup({
     // 	name:new FormControl() // Pojedyncza Kontrolka dla formularza  AppComponent !!
     // }); // dawnie było articleForm:FormControl=new FormGroup
@@ -25,6 +27,7 @@ var AppComponent = (function () {
         this._userService = _userService;
         this._gallerySerice = _gallerySerice;
         this._formB = _formB; /* @Inject(FormBuilder) _formB: FormBuilder */
+        this.number = 11;
     }
     AppComponent.prototype.getArticlesInAppComponent = function () {
         var _this = this;
@@ -49,8 +52,10 @@ var AppComponent = (function () {
         // 	name:''                          // Inicjalizacja formularza dla AppComponent !!
         // });
     };
-    AppComponent.prototype.onSubmit2 = function () {
-        alert("chuj");
+    AppComponent.prototype.onSubmitAppComponent = function (value) {
+        this.number = value;
+        alert(this.number);
+        // alert("submit 2");
         // alert(this.formSubmit.onSubmit());
         // this.users_array.push(new User(1,this.userForm.value.name,this.userForm.value.name,this.userForm.value.name));
         // this.users_array.push(new User(1,this.formSubmit.onSubmit(),this.formSubmit.onSubmit(),this.formSubmit.onSubmit()));

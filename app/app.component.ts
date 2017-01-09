@@ -40,14 +40,19 @@ export class AppComponent implements OnInit{ // implementujemy Interfejs
 	users_array:User[];
 	gallery_array:Gallery[];
 
-	formSubmit:FormComponent; // połączenie z formularzem dodawania nowych ludków
+
+	number:number;
+	// formSubmit:FormComponent; // połączenie z formularzem dodawania nowych ludków
 	// userForm:FormGroup; // Obiekt obsługujący formularz
+	// chuj:String="lafnafnfn";
 	 // userForm: FormGroup=new FormGroup({
 	 // 	name:new FormControl() // Pojedyncza Kontrolka dla formularza  AppComponent !!
 	 // }); // dawnie było articleForm:FormControl=new FormGroup
 
+
+
 	constructor(private _articleService:ArticleServices, private _userService:UserServices, private _gallerySerice:GalleryService ,private _formB:FormBuilder /* @Inject(FormBuilder) _formB: FormBuilder */){
-		
+		this.number=11;
 	}
 
 
@@ -78,12 +83,13 @@ export class AppComponent implements OnInit{ // implementujemy Interfejs
 		
 	}
 
-	onSubmit2(){
-		alert("chuj");
+	onSubmitAppComponent(value:number){
+		this.number=value;
+    	alert(this.number);
+		// alert("submit 2");
 		// alert(this.formSubmit.onSubmit());
 		// this.users_array.push(new User(1,this.userForm.value.name,this.userForm.value.name,this.userForm.value.name));
 		// this.users_array.push(new User(1,this.formSubmit.onSubmit(),this.formSubmit.onSubmit(),this.formSubmit.onSubmit()));
-			
 	}
 
 }

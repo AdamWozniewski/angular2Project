@@ -1,25 +1,37 @@
-<form class="col s12" [formGroup]="primeFormUser">
+<br>
+<br>
+<br>
+<!-- <button (click)="increment()">Increment</button> -->
+
+<form class="col s12" [formGroup]="primeFormUser" (ngSubmit)="onSubmit()">
+
     <div class="row">
         <div class="input-field col s6" >           <!-- dodaj klasę 'valid' : gdy pole formularza dotknięte-->
-            <input  id="first_name" [ngClass]="{validate :  primeFormUser.controls.firstName.touched }" formControlName="firstName" type="text" class="validate" > <!-- Pojedyńcze pole formularza-->
+            <input  id="first_name" [ngClass]="{validate :  primeFormUser.controls.firstName.touched }" formControlName="firstName" type="text" class="validate" > 
+                                                                                                      <!-- Pojedyńcze pole formularza-->
             <label for="first_name"   >First Name</label>
         </div>
         <div class="input-field col s6">
-            <input id="last_name" type="text" class="validate">
+            <input id="last_name" [ngClass]="{validate : primeFormUser.controls.lastName.touched }" formControlName="lastName" type="text" class="validate">
             <label for="last_name" >Last Name</label>
         </div>
     </div>
 
     <div class="row" >
         <div class="input-field col s12">
-            <input id="password" type="password" class="validate">
+            <input id="password" type="password" [ngClass]="{validate : primeFormUser.controls.psswd.touched}" formControlName="psswd" class="validate">
             <label for="password">Password</label>
         </div>
     </div>
-
     <div class="row">
         <div class="input-field col s12">
-            <input id="avatar" type="text" class="validate">
+            <input id="avatar" [ngClass]="{validate : primeFormUser.controls.psswd.touched }" formControlName="email" type="text" class="validate">
+            <label for="avatar">Email</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12">
+            <input id="avatar" type="text" [ngClass]="{validate : primeFormUser.controls.avatar.touched }" formControlName="avatar" class="validate">
             <label for="avatar">Avatar</label>
         </div>
     </div>

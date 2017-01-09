@@ -21,8 +21,8 @@
 
 <div class="container">
 	<div class="row">
-		<article-form [form_inputs]="userForm"></article-form>
-
+		<article-form [form_inputs]="count" (articleChange)="onSubmitAppComponent($event)"></article-form>
+										<!-- ArticleChange to emiter zdarzeń ( OUTPUT ), i przekazuje on zdarzenie do funkcji w AppComponent-->
 		<div class="col s12">
 			<hr>
 		</div>

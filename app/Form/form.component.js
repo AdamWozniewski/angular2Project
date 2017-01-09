@@ -13,37 +13,37 @@ var forms_1 = require("@angular/forms");
 var FormComponent = (function () {
     function FormComponent(formBuilder) {
         this.formBuilder = formBuilder;
-        this.values = [];
         this.primeFormUser = this.formBuilder.group({
-            firstName: new forms_1.FormControl("", forms_1.Validators.required) // pole Wymagane                      // Inicjalizacja formularza dla AppComponent !!
+            firstName: new forms_1.FormControl("", forms_1.Validators.required),
+            lastName: new forms_1.FormControl("", forms_1.Validators.required),
+            psswd: new forms_1.FormControl("", forms_1.Validators.required),
+            email: new forms_1.FormControl("", forms_1.Validators.required),
+            avatar: new forms_1.FormControl("", forms_1.Validators.required)
         });
+        // this.count = 0;
+        this.articleChange = new core_1.EventEmitter();
     }
-    // onSubmit(userForm:NgForm){
     FormComponent.prototype.ngOnInit = function () {
-        console.log("init od forma");
         // this.primeFormUser=this.formBuilder.group({
         // 	firstName:''                          // Inicjalizacja formularza dla FormComponent !!  Może być tutaj albo w konstruktorze
         // });
     };
     FormComponent.prototype.onSubmit = function () {
-        // console.log("działa on submit");
-        alert("działa");
-        // return this.primeFormUser.value.firstName;
-        // alert(this.primeFormUser.value.firstName);
-        // this.values[0]=userForm.value.first;
-        // this.name=f.value.first;
-        // console.log(this.values[0]);
-        // return this.values;
-        // this.values[0].updateValue="";
+        this.articleChange.emit(this.primeFormUser.value.firstName);
     };
     return FormComponent;
 }());
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", core_1.EventEmitter)
+], FormComponent.prototype, "articleChange", void 0);
 FormComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
         selector: 'article-form',
-        providers: [forms_1.FormBuilder],
+        providers: [forms_1.FormBuilder,],
         inputs: ['form_inputs'],
+        // outputs:['form_outputs'],
         templateUrl: 'template/form.component.template.html'
     }),
     __metadata("design:paramtypes", [forms_1.FormBuilder])
