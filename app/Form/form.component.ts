@@ -18,7 +18,7 @@ import { PostMan } from './../Services/postman.service';
 
 
 export class FormComponent implements OnInit{
-	@Output() articleChange: EventEmitter<number>; // Do komunikacji W GÓRĘ !! (do AppComponent)
+	@Output() articleChange: EventEmitter<PostMan>; // Do komunikacji W GÓRĘ !! (do AppComponent)
 
 	firstName:String;
 	lastName:String;
@@ -38,7 +38,7 @@ export class FormComponent implements OnInit{
 			avatar: new FormControl("",Validators.required)
 		});
 		// this.count = 0;
-		this.articleChange = new EventEmitter<number>();
+		this.articleChange = new EventEmitter<PostMan>();
 	}
 	
 	ngOnInit() {
