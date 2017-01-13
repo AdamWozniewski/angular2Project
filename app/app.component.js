@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var forms_1 = require("@angular/forms"); // Import formluarzy  'FormControl' to dawne ControlGroup
+var User_1 = require("./Users/User");
 // Serwisy danych
 var article_services_1 = require("./Services/article.services");
 var users_services_1 = require("./Services/users.services");
@@ -27,7 +28,6 @@ var AppComponent = (function () {
         this._userService = _userService;
         this._gallerySerice = _gallerySerice;
         this._formB = _formB; /* @Inject(FormBuilder) _formB: FormBuilder */
-        this.number = 11;
     }
     AppComponent.prototype.getArticlesInAppComponent = function () {
         var _this = this;
@@ -53,8 +53,10 @@ var AppComponent = (function () {
         // });
     };
     AppComponent.prototype.onSubmitAppComponent = function (value) {
-        this.number = value[0];
-        alert(this.number);
+        this.postMan = value;
+        this.users_array.push(new User_1.User(this.postMan.id, this.postMan.name, this.postMan.lastName, this.postMan.password, this.postMan.avatar));
+        // this.users_array.push(new User(1,"xx","xx","xx","xx"));
+        // alert(this.postMan);
         // this.users_array.push(new User(this.number,this.number,this.number,this.number,this.number));
     };
     return AppComponent;

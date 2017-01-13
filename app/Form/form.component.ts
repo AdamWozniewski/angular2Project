@@ -3,16 +3,19 @@ import {OnInit} from "@angular/core";
 import {NgClass} from "@angular/common";
 import {NgForm} from '@angular/forms';
 import { FormGroup, FormControl,FormBuilder,Validators } from '@angular/forms';
+import { PostMan } from './../Services/postman.service';
 
 
 @Component({
 	moduleId: module.id,
 	selector:'article-form',
-	providers:[FormBuilder,],
+	providers:[FormBuilder],
 	inputs:['form_inputs'],
 	// outputs:['form_outputs'],
 	templateUrl:'template/form.component.template.html'
 })
+
+
 
 export class FormComponent implements OnInit{
 	@Output() articleChange: EventEmitter<number>; // Do komunikacji W GÓRĘ !! (do AppComponent)
@@ -25,8 +28,7 @@ export class FormComponent implements OnInit{
 	// primeFormUser:FormGroup;
 	primeFormUser: FormGroup; // dawnie było articleForm:FormControl=new FormGroup
 
-	arra:any;
-
+	postman:PostMan;
 	constructor(private formBuilder: FormBuilder) {
 		this.primeFormUser=this.formBuilder.group({
 			firstName: new FormControl("",Validators.required),  // pole Wymagane                      // Inicjalizacja formularza dla AppComponent !!
@@ -48,16 +50,17 @@ export class FormComponent implements OnInit{
 
 	onSubmit(){
 		
-		this.arra[0]=this.primeFormUser.value.firstName;
 
-		// this.articleChange.emit(this.primeFormUser.value.firstName);
-		this.articleChange.emit(this.arra[0]);
+		
+		// this.arra[0]=this.primeFormUser.value.firstName;
+		// this.arra[1]=this.primeFormUser.value.lastName;
+		// this.arra[2]=this.primeFormUser.value.psswd;
+		// this.arra[3]=this.primeFormUser.value.email;
+		// this.arra[4]=this.primeFormUser.value.avatar;
+		this.postman=new PostMan(this.primeFormUser.value.firstName,this.primeFormUser.value.lastName,this.primeFormUser.value.psswd,this.primeFormUser.value.email,this.primeFormUser.value.avatar);
 
-		this.primeFormUser.value.firstName="";
-		this.primeFormUser.value.LastName="";
-		this.primeFormUser.value.psswd="";
-		this.primeFormUser.value.email="";
-		this.primeFormUser.value.avatar="";
+		this.articleChange.emit(this.postman);
+		// this.articleChange.emit(this.arra[0]);
 
 	}
 

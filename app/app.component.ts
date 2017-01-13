@@ -24,6 +24,7 @@ import {GalleryComponent} from './Gallery/gallery.component';
 import {ArticleServices} from './Services/article.services';
 import {UserServices} from './Services/users.services';
 import {GalleryService} from './Services/gallery.services';
+import { PostMan } from './Services/postman.service';
 
 // http://blog.thoughtram.io/angular/2016/06/22/model-driven-forms-in-angular-2.html <- formularze
 
@@ -41,7 +42,7 @@ export class AppComponent implements OnInit{ // implementujemy Interfejs
 	gallery_array:Gallery[];
 
 
-	number:number;
+	postMan:PostMan;
 	// formSubmit:FormComponent; // połączenie z formularzem dodawania nowych ludków
 	// userForm:FormGroup; // Obiekt obsługujący formularz
 	// chuj:String="lafnafnfn";
@@ -52,7 +53,7 @@ export class AppComponent implements OnInit{ // implementujemy Interfejs
 
 
 	constructor(private _articleService:ArticleServices, private _userService:UserServices, private _gallerySerice:GalleryService ,private _formB:FormBuilder /* @Inject(FormBuilder) _formB: FormBuilder */){
-		this.number=11;
+		
 	}
 
 
@@ -83,10 +84,13 @@ export class AppComponent implements OnInit{ // implementujemy Interfejs
 		
 	}
 
-	onSubmitAppComponent(value:number){
-		this.number=value[0];
+	onSubmitAppComponent(value:PostMan){
+		this.postMan=value;
 
-		alert(this.number);
+		this.users_array.push(new User(this.postMan.id,this.postMan.name,this.postMan.lastName,this.postMan.password,this.postMan.avatar));
+		// this.users_array.push(new User(1,"xx","xx","xx","xx"));
+
+		// alert(this.postMan);
 		
 		// this.users_array.push(new User(this.number,this.number,this.number,this.number,this.number));
 	}

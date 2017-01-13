@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var forms_1 = require("@angular/forms");
+var postman_service_1 = require("./../Services/postman.service");
 var FormComponent = (function () {
     function FormComponent(formBuilder) {
         this.formBuilder = formBuilder;
@@ -29,14 +30,14 @@ var FormComponent = (function () {
         // });
     };
     FormComponent.prototype.onSubmit = function () {
-        this.arra[0] = this.primeFormUser.value.firstName;
-        // this.articleChange.emit(this.primeFormUser.value.firstName);
-        this.articleChange.emit(this.arra[0]);
-        this.primeFormUser.value.firstName = "";
-        this.primeFormUser.value.LastName = "";
-        this.primeFormUser.value.psswd = "";
-        this.primeFormUser.value.email = "";
-        this.primeFormUser.value.avatar = "";
+        // this.arra[0]=this.primeFormUser.value.firstName;
+        // this.arra[1]=this.primeFormUser.value.lastName;
+        // this.arra[2]=this.primeFormUser.value.psswd;
+        // this.arra[3]=this.primeFormUser.value.email;
+        // this.arra[4]=this.primeFormUser.value.avatar;
+        this.postman = new postman_service_1.PostMan(this.primeFormUser.value.firstName, this.primeFormUser.value.lastName, this.primeFormUser.value.psswd, this.primeFormUser.value.email, this.primeFormUser.value.avatar);
+        this.articleChange.emit(this.postman);
+        // this.articleChange.emit(this.arra[0]);
     };
     return FormComponent;
 }());
@@ -48,7 +49,7 @@ FormComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
         selector: 'article-form',
-        providers: [forms_1.FormBuilder,],
+        providers: [forms_1.FormBuilder],
         inputs: ['form_inputs'],
         // outputs:['form_outputs'],
         templateUrl: 'template/form.component.template.html'
