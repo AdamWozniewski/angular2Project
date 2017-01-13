@@ -96,4 +96,4 @@ export class AppComponent implements OnInit{ // implementujemy Interfejs
 	}
 
 }
-
+ 

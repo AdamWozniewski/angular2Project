@@ -19,7 +19,7 @@ var FormComponent = (function () {
             lastName: new forms_1.FormControl("", forms_1.Validators.required),
             psswd: new forms_1.FormControl("", forms_1.Validators.required),
             email: new forms_1.FormControl("", forms_1.Validators.required),
-            avatar: new forms_1.FormControl("", forms_1.Validators.required)
+            avatar: new forms_1.FormControl("") // Avatar jest opcjonalny
         });
         // this.count = 0;
         this.articleChange = new core_1.EventEmitter();
@@ -35,7 +35,7 @@ var FormComponent = (function () {
         // this.arra[2]=this.primeFormUser.value.psswd;
         // this.arra[3]=this.primeFormUser.value.email;
         // this.arra[4]=this.primeFormUser.value.avatar;
-        this.postman = new postman_service_1.PostMan(this.primeFormUser.value.firstName, this.primeFormUser.value.lastName, this.primeFormUser.value.psswd, this.primeFormUser.value.email, this.primeFormUser.value.avatar);
+        this.postman = new postman_service_1.PostMan(1, this.primeFormUser.value.firstName, this.primeFormUser.value.lastName, this.primeFormUser.value.psswd, this.primeFormUser.value.email, this.primeFormUser.value.avatar);
         this.articleChange.emit(this.postman);
         // this.articleChange.emit(this.arra[0]);
     };
