@@ -3,7 +3,7 @@
 <br>
 <!-- <button (click)="increment()">Increment</button> -->
 
-<form class="col s12" [formGroup]="primeFormUser" (ngSubmit)="onSubmit()">
+<form class="col s12  modal-content" [formGroup]="primeFormUser" (ngSubmit)="onSubmit()" >
 
     <div class="row">
         <div class="input-field col s6" >           <!-- dodaj klasę 'valid' : gdy pole formularza dotknięte-->
@@ -38,13 +38,16 @@
 
     <div class="row">
         <div class="input-field col s12">                <!-- Dodanie dyrektywy sprawdzająca zwalidowane pola-->
-            <button class="btn waves-effect waves-light" [ngClass]="{disabled: !primeFormUser.valid }"   type="submit" name="action">Submit
+            <button class="btn waves-effect waves-light modal-close" [ngClass]="{disabled: !primeFormUser.valid }"   type="submit" name="action">Submit
                 <i class="material-icons right">send</i>
             </button>
         </div>
     </div>
 
 </form>
+<!-- <div class="modal-footer">
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div> -->
 
 
 

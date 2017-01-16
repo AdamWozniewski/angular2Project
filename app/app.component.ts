@@ -13,6 +13,7 @@ import { Article } from './Article/article';
 import { ArticleComponent } from './Article/article.component';
 
 import { FormComponent } from './Form/form.component';
+import { FormFileUploadComponent } from './Form/formFileUpload.component';
 
 import {User} from './Users/User';
 import {UserComponent} from './Users/user.component';
@@ -87,7 +88,7 @@ export class AppComponent implements OnInit{ // implementujemy Interfejs
 	onSubmitAppComponent(value:PostMan){
 		this.postMan=value;
 
-		this.users_array.push(new User(this.postMan.id,this.postMan.name,this.postMan.lastName,this.postMan.password,this.postMan.avatar));
+		this.users_array.push(new User(this.postMan.id,this.postMan.name,this.postMan.lastName,this.postMan.password,this.postMan.email,this.postMan.avatar));
 		// this.users_array.push(new User(1,"xx","xx","xx","xx"));
 
 		// alert(this.postMan);

@@ -54,7 +54,7 @@ var AppComponent = (function () {
     };
     AppComponent.prototype.onSubmitAppComponent = function (value) {
         this.postMan = value;
-        this.users_array.push(new User_1.User(this.postMan.id, this.postMan.name, this.postMan.lastName, this.postMan.password, this.postMan.avatar));
+        this.users_array.push(new User_1.User(this.postMan.id, this.postMan.name, this.postMan.lastName, this.postMan.password, this.postMan.email, this.postMan.avatar));
         // this.users_array.push(new User(1,"xx","xx","xx","xx"));
         // alert(this.postMan);
         // this.users_array.push(new User(this.number,this.number,this.number,this.number,this.number));
