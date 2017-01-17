@@ -35,7 +35,7 @@ export class FormComponent implements OnInit{
 			lastName: new FormControl("",Validators.required),
 			psswd: new FormControl("",Validators.required),
 			email: new FormControl("",Validators.required),
-			avatar: new FormControl("",Validators.required)
+			avatar: new FormControl("") // Avatar jest opcjonalny
 		});
 		// this.count = 0;
 		this.articleChange = new EventEmitter<PostMan>();
@@ -49,16 +49,7 @@ export class FormComponent implements OnInit{
 
 
 	onSubmit(){
-		
-
-		
-		// this.arra[0]=this.primeFormUser.value.firstName;
-		// this.arra[1]=this.primeFormUser.value.lastName;
-		// this.arra[2]=this.primeFormUser.value.psswd;
-		// this.arra[3]=this.primeFormUser.value.email;
-		// this.arra[4]=this.primeFormUser.value.avatar;
-		this.postman=new PostMan(this.primeFormUser.value.firstName,this.primeFormUser.value.lastName,this.primeFormUser.value.psswd,this.primeFormUser.value.email,this.primeFormUser.value.avatar);
-
+		this.postman=new PostMan(1,this.primeFormUser.value.firstName,this.primeFormUser.value.lastName,this.primeFormUser.value.psswd,this.primeFormUser.value.email,this.primeFormUser.value.avatar);
 		this.articleChange.emit(this.postman);
 		// this.articleChange.emit(this.arra[0]);
 

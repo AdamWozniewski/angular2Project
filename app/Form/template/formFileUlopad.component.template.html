@@ -1,0 +1,18 @@
+
+<form [formGroup]="fileUpload" class="col s12" >
+    <div class="file-field input-field">
+      <div class="btn">
+        <span>Pliki</span>
+        <input type="file" formControlName="file">
+      </div>
+      <div class="file-path-wrapper">
+        <input class="file-path validate" type="text"  placeholder="dodaj zdjęcie do galerii">
+      </div>
+    </div> 
+    <div class="input-field ">                <!-- Dodanie dyrektywy sprawdzająca zwalidowane pola-->
+            <button class="btn waves-effect waves-light modal-close"    type="submit" name="action">Submit
+                <i class="material-icons right">send</i>
+            </button>
+        </div>
+  </form>
+    
