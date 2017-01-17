@@ -3,7 +3,7 @@ import {OnInit} from "@angular/core";
 import {NgClass} from "@angular/common";
 import {NgForm} from '@angular/forms';
 // import {Http, Response, Headers} from 'http/http';
-import files =require ("fs");
+// import files =require ("fs");
 import { FormGroup, FormControl,FormBuilder,Validators } from '@angular/forms';
 
 
@@ -34,14 +34,14 @@ export class FormFileUploadComponent implements OnInit{
 	ngOnInit() {
 	}
 	onSubmitFile(){
-		files.writeFile("bonzo.txt","CHUUUUJ",function(error){
-			if(error){
-				console.log("NIE");
-			}else{
-				
-				console.log("tak");
-			}
-		});
+		// files.writeFile("bonzo.txt","CHUUUUJ",function(error){
+		// 	if(error){
+		// 		console.log("NIE");
+		// 	}else{
+		//
+		// 		console.log("tak");
+		// 	}
+		// });
 		// this.name=this.fileUpload.value;
 		// alert(this.name);	
 		console.log("ok");

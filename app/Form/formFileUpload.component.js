@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 // import {Http, Response, Headers} from 'http/http';
-var files = require("fs");
+// import files =require ("fs");
 var forms_1 = require("@angular/forms");
 var FormFileUploadComponent = (function () {
     function FormFileUploadComponent(_formBuilder) {
@@ -22,14 +22,14 @@ var FormFileUploadComponent = (function () {
     FormFileUploadComponent.prototype.ngOnInit = function () {
     };
     FormFileUploadComponent.prototype.onSubmitFile = function () {
-        files.writeFile("bonzo.txt", "CHUUUUJ", function (error) {
-            if (error) {
-                console.log("NIE");
-            }
-            else {
-                console.log("tak");
-            }
-        });
+        // files.writeFile("bonzo.txt","CHUUUUJ",function(error){
+        // 	if(error){
+        // 		console.log("NIE");
+        // 	}else{
+        //
+        // 		console.log("tak");
+        // 	}
+        // });
         // this.name=this.fileUpload.value;
         // alert(this.name);	
         console.log("ok");
